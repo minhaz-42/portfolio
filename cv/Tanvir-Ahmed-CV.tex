@@ -1,308 +1,270 @@
 %-------------------------------------------------------------------------------
 % Tanvir Ahmed - Curriculum Vitae
+% Same layout as the original CV (centred header, ruled section titles, bold
+% entry titles with right-aligned dates, bullet details, "Technologies:" lines),
+% with the content brought up to date.
 %
-% Layout follows the widely used "Jake's Resume" template
-% (https://github.com/jakegut/resume, MIT licence): single column, small caps
-% section heads with a rule, tabularx two-column entry headers, ATS-readable
-% because \pdfgentounicode makes the glyphs copy out as real text.
-%
-% Build:  pdflatex Tanvir-Ahmed-CV.tex   (twice, for the tabularx widths)
-% or from the repository root:  ./build-cv.sh
+% Build: ./build-cv.sh   (pdflatex, two passes)
 %-------------------------------------------------------------------------------
-\documentclass[letterpaper,11pt]{article}
-
-\usepackage{latexsym}
-\usepackage[empty]{fullpage}
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage{titlesec}
-\usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
 \usepackage{enumitem}
+\usepackage{multicol}
+\usepackage{parskip}
+\usepackage{array}
 \usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
-\usepackage[english]{babel}
-\usepackage{tabularx}
-\usepackage{fontawesome5}
 \input{glyphtounicode}
-
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
-
-% Margins
-\addtolength{\oddsidemargin}{-0.6in}
-\addtolength{\evensidemargin}{-0.6in}
-\addtolength{\textwidth}{1.2in}
-\addtolength{\topmargin}{-.7in}
-\addtolength{\textheight}{1.4in}
-
-\urlstyle{same}
-\raggedbottom
-\raggedright
-\setlength{\tabcolsep}{0in}
-
-% Section heading: small caps, ruled
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
-
-% Make the PDF text machine-readable
 \pdfgentounicode=1
+\pagestyle{plain}
 
-%------------------------- Custom commands -------------------------------------
-\newcommand{\resumeItem}[1]{
-  \item\small{{#1 \vspace{-2pt}}}
-}
+\titleformat{\section}{\Large\bfseries}{}{0em}{}[\vspace{-5pt}\titlerule]
+\titlespacing*{\section}{0pt}{12pt}{7pt}
+\setlist[itemize]{leftmargin=1.5em, itemsep=0pt, topsep=2pt, parsep=0pt}
+\setlength{\parskip}{3.5pt}
 
-\newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
-}
+% Entry head: title wraps inside its own column; the date or status stays on the
+% first line, right-aligned. Every macro opens and closes its own paragraph so a
+% following line can never run onto the previous one.
+\newcommand{\entryhead}[2]{\par\vspace{3pt}\noindent%
+  \begin{tabular*}{\textwidth}[t]{@{}>{\raggedright\arraybackslash}p{0.73\textwidth}@{\extracolsep{\fill}}r@{}}
+    \textbf{#1} & #2
+  \end{tabular*}\par\vspace{-1pt}}
+\newcommand{\entry}[2]{\entryhead{#1}{\textbf{#2}}}
+\newcommand{\entryplain}[2]{\entryhead{#1}{#2}}
+\newcommand{\tech}[1]{\par\vspace{1pt}\noindent\textbf{Technologies:} #1\par}
+\newcommand{\links}[1]{\par\vspace{1pt}\noindent\textbf{Links:} #1\par}
+\newcommand{\gap}{\par\vspace{3pt}}
 
-% Publication: title, status badge, then authors/venue on the second line
-\newcommand{\resumePub}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{p{0.80\textwidth}@{\extracolsep{\fill}}r}
-      \textbf{#1} & \small\textsc{#2} \\
-    \end{tabular*}
-    \vspace{1pt}
-    \\ \small #3 \textit{#4}
-    \vspace{-4pt}
-}
-
-% Research / project entry: title on the left, status or year on the right
-\newcommand{\resumeEntry}[2]{
-  \vspace{1pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{p{0.76\textwidth}@{\extracolsep{\fill}}r}
-      \textbf{#1} & \small #2 \\
-    \end{tabular*}\vspace{-6pt}
-}
-
-% One-line project: bold name then description, no bullet gap
-\newcommand{\resumeLine}[2]{
-  \item\small{\textbf{#1} #2 \vspace{-3pt}}
-}
-
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
-
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.30in, itemsep=1pt, topsep=2pt]}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
-
-%===============================================================================
 \begin{document}
 
-%----------------------------------- HEADING -----------------------------------
+%----------------------------------- HEADER ------------------------------------
 \begin{center}
-  {\Huge \scshape Tanvir Ahmed} \\ \vspace{4pt}
-  \small
-  \faMapMarker* \, Dhaka, Bangladesh \, $|$ \,
-  \faPhone* \, \href{tel:+8801841449894}{+880 1841 449894} \, $|$ \,
-  \faEnvelope \, \href{mailto:tanvirahmed.minhaz1@gmail.com}{tanvirahmed.minhaz1@gmail.com}
-  \\ \vspace{2pt}
-  \faEnvelopeOpen \, \href{mailto:tanvir.ahmed32@northsouth.edu}{tanvir.ahmed32@northsouth.edu} \, $|$ \,
-  \faLinkedin \, \href{https://www.linkedin.com/in/tanvir-ahmed-1a4856418/}{linkedin.com/in/tanvir-ahmed-1a4856418} \, $|$ \,
-  \faGithub \, \href{https://github.com/minhaz-42}{github.com/minhaz-42} \, $|$ \,
-  \faGlobe \, \href{https://minhaz-42.github.io/Tanvir-Ahmed/}{minhaz-42.github.io/Tanvir-Ahmed}
+  {\LARGE\bfseries TANVIR AHMED}\\[5pt]
+  North South University, Dhaka, Bangladesh\\[2pt]
+  \href{mailto:tanvirahmed.minhaz1@gmail.com}{tanvirahmed.minhaz1@gmail.com} \,|\,
+  \href{tel:+8801841449894}{+880 1841 449894} \,|\,
+  \href{https://github.com/minhaz-42}{GitHub} \,|\,
+  \href{https://www.linkedin.com/in/tanvir-ahmed-1a4856418/}{LinkedIn} \,|\,
+  \href{https://minhaz-42.github.io/Tanvir-Ahmed/}{Website}
 \end{center}
-\vspace{-6pt}
 
-%--------------------------------- INTERESTS -----------------------------------
-\section{Research Interests}
-\vspace{2pt}
-\small{
-Efficient multimodal inference and the scheduling of computation across vision-language models of
-different sizes; video understanding and its evaluation; calibration, abstention and uncertainty;
-explainable and auditable systems; empirical audits of quantum machine learning; and inference on
-microcontroller-class hardware.
-}
-\vspace{-2pt}
-
-%--------------------------------- EDUCATION -----------------------------------
+%---------------------------------- EDUCATION ----------------------------------
 \section{Education}
-\resumeSubHeadingListStart
+\entry{Bachelor of Science in Computer Science and Engineering}{2022 -- Dec 2026 (expected)}
+North South University, Dhaka, Bangladesh\\
+Department of Electrical and Computer Engineering\\
+CGPA: \textbf{3.02 / 4.00}
+\gap
+\entry{Higher Secondary Certificate (HSC), Science}{January 2021}
+Milestone College, Dhaka\\
+GPA: \textbf{5.00 / 5.00}
 
-  \resumeSubheading
-    {North South University}{Dhaka, Bangladesh}
-    {B.Sc. in Computer Science and Engineering}{2022 -- Dec 2026 (expected)}
-    \resumeItemListStart
-      \resumeItem{Department of Electrical and Computer Engineering. CGPA 3.02 / 4.00.}
-    \resumeItemListEnd
-
-  \resumeSubheading
-    {Milestone College}{Dhaka, Bangladesh}
-    {Higher Secondary Certificate, Science}{2021}
-    \resumeItemListStart
-      \resumeItem{GPA 5.00 / 5.00.}
-    \resumeItemListEnd
-
-\resumeSubHeadingListEnd
+%----------------------------- RESEARCH INTERESTS ------------------------------
+\section{Research Interests}
+\begin{multicols}{2}
+\begin{itemize}[topsep=0pt]
+  \item Efficient Multimodal Inference
+  \item Computer Vision and Video Understanding
+  \item Calibration, Abstention and Uncertainty
+  \item Quantum Machine Learning
+  \item Explainable AI (XAI)
+  \item Edge AI
+  \item Agentic Systems
+  \item Full-Stack System Architecture
+\end{itemize}
+\end{multicols}
 
 %-------------------------------- PUBLICATIONS ---------------------------------
 \section{Publications}
-\resumeSubHeadingListStart
-
-  \resumePub
-    {Closed-Book Knowledge Base Construction with Calibrated Abstention and Numeric Self-Consistency}
-    {Accepted}
-    {Tanvir Ahmed.}
-    {LM-KBC 2026 shared task (5th edition), Automated Knowledge Base Construction (AKBC) at EMNLP 2026.}
-    \resumeItemListStart
-      \resumeItem{Set-valued knowledge base construction with an open-weight model of at most 32B
-        parameters, no retrieval and no fine-tuning. Because a correct empty prediction scores a
-        perfect F\textsubscript{1}, the system treats \textit{when to answer} as a first-class
-        decision.}
-      \resumeItem{Scores 0.461 relation-averaged and 0.488 micro macro-F\textsubscript{1} on
-        validation against 0.300 / 0.313 for the official baseline, beating it on five of the six
-        relations. Code: \href{https://github.com/minhaz-42/lm-kbc-2026}{github.com/minhaz-42/lm-kbc-2026}.}
-    \resumeItemListEnd
-
-  \resumePub
-    {SoundSentry: A Low-Cost Edge-AI Acoustic Event Detection and Direction-Finding System on STM32}
-    {Under review}
-    {Tanvir Ahmed, Sanzana Afrin Tonny, Husain Kabir Sifat.}
-    {International Conference on Electrical and Computer Engineering (ICECE) 2026, Dhaka.}
-    \resumeItemListStart
-      \resumeItem{STM32F103 prototype with a three-microphone array, ADC-DMA acquisition, on-device
-        classification over 11 features, servo direction response and SD-card logging.}
-      \resumeItem{59.55\% accuracy and 58.17\% macro-F\textsubscript{1} on the 2{,}000-clip ESC-50
-        dataset under five-fold validation.}
-    \resumeItemListEnd
-
-\resumeSubHeadingListEnd
-
-%---------------------------------- RESEARCH -----------------------------------
-\section{Research}
-\resumeSubHeadingListStart
-
-  \resumeEntry{Frame-Aware Multi-Model Scheduling for Efficient Video Captioning}
-              {Senior Design Project, 2026}
-    \resumeItemListStart
-      \resumeItem{Routes video captioning between a 4B and a 27B vision-language model using a
-        CLIP-plus-graph-attention complexity scorer trained without human labels.}
-      \resumeItem{Answers a 19-clip benchmark in 70 API requests against 228 for the small model
-        alone, scoring above it on every judged axis. Lead author of four.}
-    \resumeItemListEnd
-
-  \resumeEntry{Quantum-Enhanced Driver Distraction Detection}{Directed Research, 2026}
-    \resumeItemListStart
-      \resumeItem{Hybrid classical-quantum pipeline with an entropy gate and a continuous risk
-        score, under a protocol where only the classification head differs.}
-      \resumeItem{The quantum head reaches accuracy parity with its matched classical control and
-        cuts expected calibration error by 37\% relative; the report states plainly that the gain
-        cannot be attributed to the circuit.}
-    \resumeItemListEnd
-
-  \resumeEntry{Observing Is Not Free: the decision value of visual observations in vision-language agents}
-              {In preparation}
-    \resumeItemListStart
-      \resumeItem{Measures whether an agent's observation-selection criterion ranks observations
-        the way their realised effect on the answer does. On V*Bench, 8.2\% of observations help
-        and 5.9\% actively harm.}
-    \resumeItemListEnd
-
-  \resumeEntry{Knowing What You No Longer Know: calibrated belief validity for persistent world memory}
-              {In preparation}
-    \resumeItemListStart
-      \resumeItem{Separates whether a belief is still true from how confident the model was when it
-        formed it, and builds a benchmark of elapsed-time-matched pairs to score it.}
-    \resumeItemListEnd
-
-  \resumeEntry{SimCert: a classical-simulability audit of trained QNLP text models}
-              {Abstract submitted, QTML 2026}
-    \resumeItemListStart
-      \resumeItem{Re-simulates trained quantum-NLP circuits under matrix-product-state truncation
-        to test whether the quantum component is load-bearing.}
-    \resumeItemListEnd
-
-  \resumeEntry{Sequential Video Belief}{In progress}
-    \resumeItemListStart
-      \resumeItem{Whether a video-language model's own stated answer impairs its ability to revise
-        that answer when later evidence contradicts it.}
-    \resumeItemListEnd
-
-  \resumeEntry{Uncertainty-Guided Language-Grounded 3D Scene Graphs from Sparse Views}{In progress}
-    \resumeItemListStart
-      \resumeItem{Frozen geometry and vision-language models with a lightweight graph reasoning
-        module, for 3D object segmentation and spatial relations from a few casual images.}
-    \resumeItemListEnd
-
-\resumeSubHeadingListEnd
-
-%------------------------------ TECHNICAL SKILLS -------------------------------
-\section{Technical Skills}
-\vspace{2pt}
-\begin{itemize}[leftmargin=0.15in, label={}]
-  \small{\item{
-    \textbf{Programming}{: Python, C++, C, Java, JavaScript, TypeScript, PHP, SQL, \LaTeX} \\
-    \textbf{Machine Learning}{: PyTorch, Transformers, PyTorch Geometric, scikit-learn, graph attention networks, fine-tuning, calibration, Hydra} \\
-    \textbf{Vision \& Multimodal}{: OpenCV, CLIP, DINOv2, SAM 2, MediaPipe, vision-language models, video understanding, Ollama} \\
-    \textbf{Quantum ML}{: PennyLane, variational circuits, OpenQASM, matrix-product-state simulation, lambeq} \\
-    \textbf{Web \& Software}{: Django, React, Node.js, REST APIs, WebSocket, Docker, PostgreSQL, MySQL, SQLite} \\
-    \textbf{Embedded}{: STM32, embedded C, ADC-DMA acquisition, sensor interfacing} \\
-    \textbf{Graphics \& Games}{: Godot 4, Blender, Metal, SDL3, CMake} \\
-    \textbf{Tools}{: Git, Linux, Jupyter, Apple MPS, VS Code}
-  }}
+\entry{Closed-Book Knowledge Base Construction with Calibrated Abstention and Numeric Self-Consistency}{Accepted}
+Tanvir Ahmed. \textit{LM-KBC 2026 shared task (5th edition), Automated Knowledge Base Construction (AKBC) at EMNLP 2026.}
+\begin{itemize}
+  \item Set-valued knowledge base construction with an open-weight model of at most 32B parameters,
+    no retrieval and no fine-tuning; treats deciding \textit{when to answer} as a first-class decision
+    and beats the official baseline on five of the six relations.
+  \item Code: \href{https://github.com/minhaz-42/lm-kbc-2026}{github.com/minhaz-42/lm-kbc-2026}
 \end{itemize}
-\vspace{-14pt}
+\gap
+\entry{SoundSentry: A Low-Cost Edge-AI Acoustic Event Detection and Direction-Finding System on STM32}{Under review}
+Tanvir Ahmed, Sanzana Afrin Tonny, Husain Kabir Sifat. \textit{International Conference on Electrical and Computer Engineering (ICECE) 2026, Dhaka.}
+\begin{itemize}
+  \item STM32F103 prototype with a three-microphone array, ADC-DMA acquisition, on-device
+    classification over 11 acoustic features, servo-based direction response and SD-card logging.
+  \item Code: \href{https://github.com/minhaz-42/SoundSentry-Acoustic-Surveillance-Direction-Finding-System}{github.com/minhaz-42/SoundSentry-Acoustic-Surveillance-Direction-Finding-System}
+\end{itemize}
 
-%---------------------------------- PROJECTS -----------------------------------
-\section{Projects}
-\resumeSubHeadingListStart
-  \resumeLine{Pakna Council}{Local-first web app running several LLMs in parallel on one prompt through Ollama.
-    Django, React, Docker, WebSocket.
-    \href{https://github.com/minhaz-42/Pakna_council}{Source} $\cdot$
-    \href{https://pakna-council.vercel.app/}{demo}.}
-  \resumeLine{SHAND}{Deterministic, explainable assumption detector for English text; every flag traces to its rule.
-    Python, Django, D3.js.
-    \href{https://github.com/minhaz-42/SHAND}{Source} $\cdot$
-    \href{https://shand1.vercel.app/}{demo}.}
-  \resumeLine{ISKA}{Privacy-first document analysis assistant with a Chrome extension.
-    TypeScript, Chrome extension APIs.
-    \href{https://github.com/minhaz-42/ISKA}{Source} $\cdot$
-    \href{https://iska-hxrr.vercel.app/}{demo}.}
-  \resumeLine{Nestledown}{Cozy 3D exploration game built solo in Godot 4 with every asset script-generated;
-    a parallel build runs on a custom C++20 engine with a Metal renderer.
-    \href{https://youtu.be/MUN7_kuh00U}{Trailer}.}
-  \resumeLine{Entangled Fusion Quantum Circuits}{Multimodal platform pairing vision analysis with
-    quantum-inspired fusion and language reasoning. Python, Django, PennyLane, OpenCV.}
-  \resumeLine{SUMBA}{3D sign language translation: gesture capture, dataset building and model training.
-    Django, MediaPipe, Transformers, React Native.}
-  \resumeLine{FitWell}{Nutrition and health assistant with meal planning and BMI tracking.
-    Django, Python, Qwen, SQLite.}
-  \resumeLine{DG Healthcare Management System}{Records, scheduling, prescriptions and billing with
-    role-based access. PHP, MySQL, JavaScript.}
-\resumeSubHeadingListEnd
+%------------------------------ RESEARCH PROJECTS ------------------------------
+\section{Research Projects}
 
-%--------------------------------- ACTIVITIES ----------------------------------
-\section{Activities}
-\resumeSubHeadingListStart
-  \resumeEntry{NSU Trimodal AI Lab, Research Member}{2025 -- present}
-    \resumeItemListStart
-      \resumeItem{Collaborative experimentation on multimodal and agentic AI systems; idea
-        validation, prototyping and literature review.}
-    \resumeItemListEnd
-  \resumeEntry{IEEE NSU Student Branch, General Member}{2023 -- present}
-    \resumeItemListStart
-      \resumeItem{Technical workshops, seminars and community outreach programmes.}
-    \resumeItemListEnd
-\resumeSubHeadingListEnd
+\entry{Frame-Aware Multi-Model Scheduling for Efficient Video Captioning}{Senior Design Project, 2026}
+Routes video captioning between a 4B and a 27B vision-language model so the large model is spent
+only where the footage is hard. Lead author of four.
+\begin{itemize}
+  \item Frames are stitched into mosaics, encoded by a frozen CLIP ViT-B/32 and scored for visual
+    complexity by a small graph attention network trained without human labels.
+  \item Answers a 19-clip benchmark in fewer requests than either model alone while scoring above the
+    small model on every judged axis.
+\end{itemize}
+\tech{Python, PyTorch, PyTorch Geometric, CLIP, Django, Gemma 3, Qwen3-VL}
+\gap
 
-%--------------------------------- REFERENCE -----------------------------------
-\section{Reference}
-\vspace{2pt}
-\small{
-\textbf{Dr. Md Adnan Arefeen} \\
-Assistant Professor, Department of Electrical and Computer Engineering, North South University,
-Dhaka, Bangladesh. \\
-Contact details available on request.
-}
+\entry{Quantum-Enhanced Driver Distraction Detection}{Directed Research, 2026}
+A hybrid classical--quantum pipeline with uncertainty-aware risk scoring, tested under a protocol
+where only the classification head differs.
+\begin{itemize}
+  \item The variational quantum head reaches accuracy parity with its matched classical control and
+    cuts expected calibration error by 37\% relative.
+  \item The report states what the evidence does not support, including that the calibration gain
+    cannot be attributed to the circuit.
+\end{itemize}
+\tech{Python, PyTorch, PennyLane, EfficientNet, scikit-learn}
+\gap
+
+\entry{Bangla Mental Health Conversational Agent}{Ongoing}
+AI-powered mental health chatbot for Bangla-speaking users providing context-aware, empathetic
+conversations.
+\begin{itemize}
+  \item Fine-tuned models: Gemma-3-Bangla, Qwen-2.5-0.5B-Bangla
+  \item Features: voice I/O, mood tracking, conversation history, multi-language UI
+  \item Technical: Django backend, OAuth authentication, Apple MPS GPU acceleration
+\end{itemize}
+\tech{Python, Django, PyTorch, Transformers, REST APIs, SQLite}
+\gap
+
+\entry{Observing Is Not Free: the decision value of visual observations in vision-language agents}{In preparation}
+Measures whether an agent's observation-selection criterion ranks observations the way their
+realised effect on the answer does, using a counterfactual table of answers before and after each
+candidate observation.
+\tech{Python, Vision-Language Models}
+\gap
+
+\entry{Knowing What You No Longer Know: calibrated belief validity for persistent world memory}{In preparation}
+Separates whether a belief is still true from how confident the model was when it formed it, and
+builds a benchmark of elapsed-time-matched pairs to score it.
+\tech{Python, PyTorch, HD-EPIC, AI2-THOR, ProcTHOR}
+\gap
+
+\entry{SimCert: A Classical-Simulability Audit of Trained QNLP Text Models}{Abstract submitted, QTML 2026}
+Re-simulates trained quantum-NLP circuits under matrix-product-state truncation to test whether the
+quantum component is load-bearing. Code: \href{https://github.com/minhaz-42/simcert-qnlp}{github.com/minhaz-42/simcert-qnlp}
+\tech{Python, PennyLane, lambeq, OpenQASM, Hydra}
+\gap
+
+\entry{Sequential Video Belief}{In progress}
+Whether a video-language model's own stated answer impairs its ability to revise that answer when
+later visual evidence contradicts it.
+\tech{Python, Vision-Language Models}
+\gap
+
+\entry{Uncertainty-Guided Language-Grounded 3D Scene Graphs from Sparse Views}{In progress}
+Frozen geometry and vision-language models with a lightweight graph reasoning module, for 3D
+object segmentation and spatial relations from a few casual images.
+\tech{Python, PyTorch, VGGT, SAM 2, CLIP, DINOv2}
+
+%------------------------------ TECHNICAL PROJECTS -----------------------------
+\section{Technical Projects}
+
+\entryplain{Pakna Council -- AI Council Platform}{2026}
+Local-first web app running multiple LLMs in parallel on one prompt through Ollama, with model
+comparison and vision workflows.
+\links{\href{https://github.com/minhaz-42/Pakna_council}{Source} $\cdot$ \href{https://pakna-council.vercel.app/}{Live site}}
+\tech{Python, Django, React, Docker, Ollama, WebSocket}
+\gap
+
+\entryplain{SHAND -- Explainable Assumption Detector}{2026}
+Rule-based system for analysing assumptions in English text; includes visual analytics and export.
+\links{\href{https://github.com/minhaz-42/SHAND}{Source} $\cdot$ \href{https://shand1.vercel.app/}{Live site}}
+\tech{Python, NLP, HTML, JavaScript, D3.js}
+\gap
+
+\entryplain{ISKA -- Privacy-First Document Analysis Assistant}{2026}
+Document analysis assistant with a Chrome extension for use while reading.
+\links{\href{https://github.com/minhaz-42/ISKA}{Source} $\cdot$ \href{https://iska-hxrr.vercel.app/}{Live site}}
+\tech{TypeScript, Chrome extension APIs}
+\gap
+
+\entryplain{Nestledown -- 3D Exploration Game}{2026}
+Cozy 3D exploration game built solo in Godot 4 with every asset script-generated; a parallel build
+runs on a custom C++20 engine with a Metal renderer.
+\links{\href{https://youtu.be/MUN7_kuh00U}{Announcement trailer}}
+\tech{Godot 4, Blender, C++20, Metal, SDL3, CMake}
+\gap
+
+\entryplain{Entangled Fusion Quantum Circuits for Vision--Language Alignment}{2026}
+Experimental multimodal platform combining vision analysis with quantum-inspired fusion and
+natural language reasoning.
+\links{\href{https://github.com/minhaz-42/Entangled-Fusion-Quantum-Circuits-for-Vision-Language-Representation-Alignment}{Source}}
+\tech{Python, Django, PennyLane, Ollama, OpenCV, REST APIs}
+\gap
+
+\entryplain{SUMBA -- 3D Sign Language Translation}{2026}
+Real-time sign-to-text translation using computer vision with mobile integration and offline
+functionality.
+\links{\href{https://github.com/minhaz-42/SUMBA}{Source}}
+\tech{Django, MediaPipe, Transformers, React Native}
+\gap
+
+\entryplain{FitWell -- AI Nutrition Assistant}{2025}
+AI-powered meal planning, BMI tracking and health insights.
+\links{\href{https://github.com/minhaz-42/FitWell-Using-Django}{Source}}
+\tech{Django, Python, Qwen, SQLite, Chart.js}
+\gap
+
+\entryplain{DG Healthcare Management System}{2024}
+Hospital management platform with appointments, billing and role-based access.
+\links{\href{https://github.com/minhaz-42/cse311-project-on---DG-health-care-management-system-using-html-css-php}{Source}}
+\tech{HTML5, CSS3, PHP, MySQL, JavaScript}
+\gap
+
+\entryplain{CSE215 Java Application}{2024}
+OOP-focused Java application with modular design, MVC pattern and unit testing.
+\links{\href{https://github.com/minhaz-42/cse215-project-using-java}{Source}}
+\tech{Java, JavaFX, MySQL, JUnit}
+
+%------------------------------- TECHNICAL SKILLS ------------------------------
+\section{Technical Skills}
+\textbf{Languages:} Python, Java, JavaScript, TypeScript, PHP, C/C++, SQL, HTML, CSS, \LaTeX
+
+\textbf{Machine Learning \& AI:} Deep Learning, Computer Vision, NLP, LLMs, Transformers,
+Vision-Language Models, MediaPipe, Quantum ML, Fine-tuning, Calibration
+
+\textbf{Frameworks \& Libraries:} PyTorch, PyTorch Geometric, TensorFlow, scikit-learn, Django,
+React, Node.js, JavaFX, PennyLane, lambeq, OpenCV, CLIP, Hydra
+
+\textbf{Databases:} MySQL, SQLite, PostgreSQL, MongoDB
+
+\textbf{Software Engineering:} OOP, Design Patterns, Agile/Scrum, REST APIs, WebSocket, Docker,
+CI/CD, Unit Testing
+
+\textbf{Embedded \& Graphics:} STM32, Embedded C, ADC-DMA acquisition, Godot 4, Blender, Metal,
+SDL3, CMake
+
+\textbf{Tools \& Platforms:} Git, VS Code, Jupyter, \LaTeX, Linux, Ollama, Apple MPS
+
+\textbf{Specializations:} Full-Stack Development, System Architecture, LLM Orchestration,
+Edge AI Deployment
+
+%--------------------------- EXTRACURRICULAR ACTIVITIES ------------------------
+\section{Extracurricular Activities}
+\entry{IEEE NSU Student Branch, General Member}{2023 -- Present}
+\begin{itemize}
+  \item Participated in technical workshops, seminars, and community outreach programs
+\end{itemize}
+\gap
+\entry{NSU Trimodal AI Lab, Research Member}{2025 -- Present}
+\begin{itemize}
+  \item Engaged in research discussions and collaborative experimentation on multimodal and
+    agentic AI systems
+  \item Contributed to idea validation, prototyping, and literature exploration in emerging AI domains
+\end{itemize}
+
+%---------------------------------- REFERENCES ---------------------------------
+\section{References}
+\textbf{Dr. Md. Adnan Arefeen}\\
+Assistant Professor, Dept. of ECE, North South University\\
+\href{mailto:adnan.arefeen@northsouth.edu}{adnan.arefeen@northsouth.edu}
 
 \end{document}
