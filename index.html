@@ -9,7 +9,6 @@
 <meta name="author" content="Tanvir Ahmed">
 <link rel="canonical" href="https://minhaz-42.github.io/Tanvir-Ahmed/">
 
-<!-- Open Graph / Twitter -->
 <meta property="og:type" content="profile">
 <meta property="og:title" content="Tanvir Ahmed | Computer Vision and Multimodal Learning">
 <meta property="og:description" content="Computer Science and Engineering at North South University. Research on efficient multimodal inference, video understanding and calibrated abstention.">
@@ -23,12 +22,10 @@
 <meta property="profile:last_name" content="Ahmed">
 <meta name="twitter:card" content="summary_large_image">
 
-<!-- Icons -->
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="alternate icon" href="favicon.ico" sizes="16x16 32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-<!-- Fonts: self-hosted, no third-party requests -->
 <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/newsreader-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/site.css">
@@ -139,6 +136,10 @@
             <a href="mailto:tanvirahmed.minhaz1@gmail.com">tanvirahmed.minhaz1@gmail.com</a>
           </li>
           <li>
+            <span class="k">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/tanvir-ahmed-1a4856418/" rel="me noopener">linkedin.com/in/tanvir-ahmed-1a4856418</a>
+          </li>
+          <li>
             <span class="k">GitHub</span>
             <a href="https://github.com/minhaz-42" rel="me noopener">github.com/minhaz-42</a>
           </li>
@@ -156,18 +157,18 @@
           answer instead of guessing.
         </p>
         <p>
-          My senior design project routes video captioning between a 4B and a 27B
-          vision-language model using a trained complexity scorer, answering a 19-clip
-          benchmark in 70 API requests against 228 for the small model alone while scoring
-          above it on every judged axis. A single-author system paper on calibrated abstention
-          in closed-book knowledge base construction was accepted to the LM-KBC 2026 shared
-          task at AKBC (EMNLP 2026).
+          That work runs along four threads: efficient inference over video with vision-language
+          models, calibrated abstention in closed-book language models, empirical audits of
+          quantum machine learning, and low-cost sensing on microcontrollers. It has produced one
+          accepted paper, one under review, and several manuscripts in preparation. Alongside the
+          research I build and ship software, from local-first web applications and browser tools
+          to a 3D game, with source code and live sites linked under Projects.
         </p>
 
         <div class="btn-row">
           <a class="btn btn--primary" href="#research">Research</a>
           <a class="btn" href="#publications">Publications</a>
-          <a class="btn" href="https://github.com/minhaz-42" rel="me noopener">GitHub</a>
+          <a class="btn" href="#projects">Projects</a>
           <a class="btn" href="resume/">CV</a>
         </div>
       </div>
@@ -178,87 +179,74 @@
 <!-- ============================== ABOUT ============================== -->
 <section id="about" class="band">
   <div class="wrap">
-    <div class="row">
-      <div>
-        <span class="sec-num">01</span>
-        <h2 class="h-sec">About</h2>
-      </div>
-      <div class="prose js-reveal">
-        <p>
-          I am finishing a B.Sc. in Computer Science and Engineering at North South University,
-          in the Department of Electrical and Computer Engineering. Most of my work over the past
-          year has been research: two course-based research projects, one accepted shared-task
-          system paper, one conference paper under review, and several independent investigations
-          that I run end to end, from literature audit through experiments to manuscript.
-        </p>
-        <p>
-          The questions I keep returning to are about cost and honesty in machine learning
-          systems. Which inputs actually need an expensive model? When is a confident answer
-          unjustified? What does a reported gain rest on once the obvious confounds are controlled
-          for? That last question is why several of my projects are audits rather than proposals,
-          and why some of them report negative results. In my directed research, the quantum
-          classification head reaches accuracy parity with its matched classical control and cuts
-          calibration error, but the gain cannot be attributed to the circuit, because the quantum
-          head also carries a learnable output temperature the control lacks. The report says so
-          plainly.
-        </p>
-        <p>
-          I am aiming at graduate study in computer vision and multimodal learning. My current
-          direction is efficient inference over video, and uncertainty that tracks whether a
-          belief is still true rather than only how confident the model was when it formed it.
-        </p>
-      </div>
+    <div class="sec-head"><span class="sec-num">01</span><h2 class="h-sec">About</h2></div>
+    <div class="prose prose--cols js-reveal">
+      <p>
+        I am finishing a B.Sc. in Computer Science and Engineering at North South University, in
+        the Department of Electrical and Computer Engineering. Most of my work over the past year
+        has been research: two course-based research projects, one accepted shared-task system
+        paper, one conference paper under review, and several independent investigations that I
+        run end to end, from literature audit through experiments to manuscript.
+      </p>
+      <p>
+        The questions I keep returning to are about cost and honesty in machine learning systems.
+        Which inputs actually need an expensive model? When is a confident answer unjustified?
+        What does a reported gain rest on once the obvious confounds are controlled for? That last
+        question is why several of my projects are audits rather than proposals, and why some of
+        them report negative results. In my directed research, the quantum classification head
+        reaches accuracy parity with its matched classical control and cuts calibration error, but
+        the gain cannot be attributed to the circuit, because the quantum head also carries a
+        learnable output temperature the control lacks. The report says so plainly.
+      </p>
+      <p>
+        I am aiming at graduate study in computer vision and multimodal learning. My current
+        direction is efficient inference over video, and uncertainty that tracks whether a belief
+        is still true rather than only how confident the model was when it formed it.
+      </p>
     </div>
   </div>
 </section>
 
 <!-- ============================== RESEARCH ============================== -->
-<section id="research" class="band">
+<section id="research" class="band band--sunk">
   <div class="wrap">
-    <div class="row">
-      <div>
-        <span class="sec-num">02</span>
-        <h2 class="h-sec">Research</h2>
-      </div>
-      <div>
-        <p class="sec-lede">
-          Statuses below are exact: accepted, under review, submitted and in preparation mean
-          different things and are not used interchangeably.
-        </p>
+    <div class="sec-head"><span class="sec-num">02</span><h2 class="h-sec">Research</h2></div>
+    <p class="sec-lede">
+      Statuses below are exact: accepted, under review, submitted and in preparation mean
+      different things and are not used interchangeably.
+    </p>
 
-        <ul class="interests js-reveal">
-          <li>
-            <div class="i-name">Efficient multimodal inference</div>
-            <div class="i-note">Routing and scheduling computation across vision-language models of different sizes.</div>
-          </li>
-          <li>
-            <div class="i-name">Video understanding</div>
-            <div class="i-note">Captioning and driver-state description over long clips, and how it is evaluated.</div>
-          </li>
-          <li>
-            <div class="i-name">Calibration, abstention and uncertainty</div>
-            <div class="i-note">When a model should decline to answer, and whether its confidence carries information.</div>
-          </li>
-          <li>
-            <div class="i-name">Explainable and auditable systems</div>
-            <div class="i-note">Deterministic, inspectable alternatives to opaque scoring.</div>
-          </li>
-          <li>
-            <div class="i-name">Quantum machine learning</div>
-            <div class="i-note">Empirical audits of whether quantum components are load-bearing.</div>
-          </li>
-          <li>
-            <div class="i-name">Edge and embedded machine learning</div>
-            <div class="i-note">Inference and sensing on microcontroller-class hardware.</div>
-          </li>
-        </ul>
-      </div>
-    </div>
+    <ul class="interests js-reveal">
+      <li>
+        <div class="i-name">Efficient multimodal inference</div>
+        <div class="i-note">Routing and scheduling computation across vision-language models of different sizes.</div>
+      </li>
+      <li>
+        <div class="i-name">Video understanding</div>
+        <div class="i-note">Captioning and driver-state description over long clips, and how it is evaluated.</div>
+      </li>
+      <li>
+        <div class="i-name">Calibration, abstention and uncertainty</div>
+        <div class="i-note">When a model should decline to answer, and whether its confidence carries information.</div>
+      </li>
+      <li>
+        <div class="i-name">Explainable and auditable systems</div>
+        <div class="i-note">Deterministic, inspectable alternatives to opaque scoring.</div>
+      </li>
+      <li>
+        <div class="i-name">Quantum machine learning</div>
+        <div class="i-note">Empirical audits of whether quantum components are load-bearing.</div>
+      </li>
+      <li>
+        <div class="i-name">Edge and embedded machine learning</div>
+        <div class="i-note">Inference and sensing on microcontroller-class hardware.</div>
+      </li>
+    </ul>
   </div>
 </section>
 
 <!-- ====================== FEATURED RESEARCH ====================== -->
-<section id="featured" class="band band--sunk" aria-labelledby="feat-title">
+<section id="featured" class="band" aria-labelledby="feat-title">
   <div class="wrap">
     <p class="eyebrow">Featured research</p>
 
@@ -271,487 +259,384 @@
         <span><b>Context</b> CSE/EEE 499 Senior Design Project, Department of ECE, North South University</span>
       </p>
 
-      <div class="prose">
-        <p>
-          Most in-cabin driver video is visually uneventful, so running a large model on every
-          window spends the same compute on the dull seconds as on the ones that matter. Four
-          frames are stitched into a mosaic, encoded by a frozen CLIP ViT-B/32, and scored for
-          visual complexity by a small graph attention network; only the complex windows go to
-          the 27B model, the rest to the 4B. Training the scorer needs no human labels: each
-          mosaic is captioned by both models and the label is the disagreement between the two
-          captions in CLIP text space.
-        </p>
-      </div>
+      <div class="grid-2 grid-2--wide">
+        <div class="prose">
+          <p>
+            Most in-cabin driver video is visually uneventful, so running a large model on every
+            window spends the same compute on the dull seconds as on the ones that matter. Four
+            frames are stitched into a mosaic, encoded by a frozen CLIP ViT-B/32, and scored for
+            visual complexity by a small graph attention network; only the complex windows go to
+            the 27B model, the rest to the 4B.
+          </p>
+          <p>
+            Training the scorer needs no human labels: each mosaic is captioned by both models
+            and the label is the disagreement between the two captions in CLIP text space. Two
+            findings came out of it. The scorer transfers across datasets but its threshold does
+            not, and a threshold tuned on one dataset silently collapses routing to all-large on
+            the other. And BLEU and METEOR rank the 27B model below the 4B, inverting model
+            capacity, which is why a frames-grounded judge is a necessity here.
+          </p>
+        </div>
 
-      <div class="detail">
-        <div><span class="k">Cost</span><span class="v">70 API requests for the 19-clip benchmark, against 228 for the small model alone and 118 for the large one.</span></div>
-        <div><span class="k">Quality</span><span class="v">2.92 overall on the judge's 1 to 5 scale, between 2.13 for the small model and 3.83 for the large, and above the small model on every judged axis.</span></div>
-        <div><span class="k">Judge</span><span class="v">A blind, frames-grounded vision-language judge over 117 windows from Drive&amp;Act and DMD. Scores come from a single run and have not been validated against human ratings.</span></div>
-        <div><span class="k">Findings</span><span class="v">The complexity scorer transfers across datasets but its threshold does not, and a threshold tuned on one dataset silently collapses routing to all-large on the other. BLEU and METEOR rank the 27B model below the 4B, inverting model capacity, which is why a frames-grounded judge is a necessity here.</span></div>
-        <div><span class="k">Stack</span><span class="v">Python, PyTorch, PyTorch Geometric, CLIP, Django, Gemma 3 (4B and 27B), Qwen3-VL</span></div>
+        <div class="detail detail--boxed">
+          <div><span class="k">Cost</span><span class="v">70 API requests for the 19-clip benchmark, against 228 for the small model alone and 118 for the large one.</span></div>
+          <div><span class="k">Quality</span><span class="v">2.92 overall on the judge's 1 to 5 scale, between 2.13 for the small model and 3.83 for the large, and above the small model on every judged axis.</span></div>
+          <div><span class="k">Judge</span><span class="v">A blind, frames-grounded vision-language judge over 117 windows from Drive&amp;Act and DMD. Single run, not validated against human ratings.</span></div>
+          <div><span class="k">Stack</span><span class="v">Python, PyTorch, PyTorch Geometric, CLIP, Django, Gemma 3 (4B and 27B), Qwen3-VL</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ====================== OTHER RESEARCH ====================== -->
-<section id="research-more" class="band">
+<section id="research-more" class="band band--sunk">
   <div class="wrap">
-    <div class="row">
-      <div>
-        <span class="sec-num">03</span>
-        <h2 class="h-sec">Other research</h2>
-      </div>
-      <div class="list">
+    <div class="sec-head"><span class="sec-num">03</span><h2 class="h-sec">Other research</h2></div>
+    <div class="list grid-2">
 
-        <article class="item js-reveal">
-          <div class="item__head">
-            <h3 class="item__title">Quantum-Enhanced Driver Distraction Detection</h3>
-            <span class="status">Complete</span>
-          </div>
-          <p class="item__sub">CSE 498R Directed Research, Department of ECE, North South University</p>
-          <div class="item__body">
-            <p>
-              A hybrid classical-quantum pipeline with an entropy gate and a continuous risk
-              score, built to test whether a variational quantum head buys anything over a matched
-              classical one. Under a protocol where only the head differs, the quantum head reaches
-              accuracy parity and cuts expected calibration error by 37% relative. The report also
-              states what the evidence does not support: no accuracy gain, no added robustness under
-              noise, and a calibration gain that cannot be attributed to the circuit.
-            </p>
-          </div>
-        </article>
+      <article class="item js-reveal">
+        <div class="item__head">
+          <h3 class="item__title">Quantum-Enhanced Driver Distraction Detection</h3>
+          <span class="status">Complete</span>
+        </div>
+        <p class="item__sub">CSE 498R Directed Research, Department of ECE, North South University</p>
+        <div class="item__body">
+          <p>
+            A hybrid classical-quantum pipeline with an entropy gate and a continuous risk score,
+            built to test whether a variational quantum head buys anything over a matched classical
+            one. Under a protocol where only the head differs, the quantum head reaches accuracy
+            parity and cuts expected calibration error by 37% relative. The report also states what
+            the evidence does not support: no accuracy gain, no added robustness under noise, and a
+            calibration gain that cannot be attributed to the circuit.
+          </p>
+        </div>
+      </article>
 
-        <article class="item js-reveal">
-          <div class="item__head">
-            <h3 class="item__title">Observing Is Not Free: the decision value of visual observations in vision-language agents</h3>
-            <span class="status">In preparation</span>
-          </div>
-          <div class="item__body">
-            <p>
-              When a vision-language agent chooses what to look at, does its selection criterion
-              rank observations the way their realised effect on the answer does? Measured with a
-              counterfactual table of the model's answer before and after every candidate
-              observation, 8.2% help, 5.9% actively harm, and decision value turns out not to be
-              predictable from crop geometry at all.
-            </p>
-          </div>
-        </article>
+      <article class="item js-reveal">
+        <div class="item__head">
+          <h3 class="item__title">Observing Is Not Free: the decision value of visual observations in vision-language agents</h3>
+          <span class="status">In preparation</span>
+        </div>
+        <div class="item__body">
+          <p>
+            When a vision-language agent chooses what to look at, does its selection criterion rank
+            observations the way their realised effect on the answer does? Measured with a
+            counterfactual table of the model's answer before and after every candidate observation,
+            8.2% help, 5.9% actively harm, and decision value turns out not to be predictable from
+            crop geometry at all.
+          </p>
+        </div>
+      </article>
 
-        <article class="item js-reveal">
-          <div class="item__head">
-            <h3 class="item__title">Knowing What You No Longer Know: calibrated belief validity for persistent world memory</h3>
-            <span class="status">In preparation</span>
-          </div>
-          <div class="item__body">
-            <p>
-              Systems that report a confidence say how sure they are what an object is, not how
-              sure they are that a belief is still true. This separates the two, and builds a
-              benchmark from elapsed-time-matched pairs over real and simulated changing rooms to
-              score it. A hazard fitted to real observation gaps predicts validity where recency is
-              close to chance.
-            </p>
-          </div>
-        </article>
+      <article class="item js-reveal">
+        <div class="item__head">
+          <h3 class="item__title">Knowing What You No Longer Know: calibrated belief validity for persistent world memory</h3>
+          <span class="status">In preparation</span>
+        </div>
+        <div class="item__body">
+          <p>
+            Systems that report a confidence say how sure they are what an object is, not how sure
+            they are that a belief is still true. This separates the two, and builds a benchmark from
+            elapsed-time-matched pairs over real and simulated changing rooms to score it. A hazard
+            fitted to real observation gaps predicts validity where recency is close to chance.
+          </p>
+        </div>
+      </article>
 
-        <article class="item js-reveal">
-          <div class="item__head">
-            <h3 class="item__title">SimCert: a classical-simulability audit of trained QNLP text models</h3>
-            <span class="status">Abstract submitted</span>
-          </div>
-          <p class="item__sub">Non-archival abstract submitted to QTML 2026</p>
-          <div class="item__body">
-            <p>
-              When a quantum natural language processing model reports a gain on text, was the
-              quantum part load-bearing, or did the trained circuit sit in the efficiently
-              classically-simulable regime the whole time? Trained circuits are re-simulated under
-              matrix-product-state truncation and an entanglement-removal ablation to find out.
-            </p>
-          </div>
-        </article>
+      <article class="item js-reveal">
+        <div class="item__head">
+          <h3 class="item__title">SimCert: a classical-simulability audit of trained QNLP text models</h3>
+          <span class="status">Abstract submitted</span>
+        </div>
+        <p class="item__sub">Non-archival abstract submitted to QTML 2026</p>
+        <div class="item__body">
+          <p>
+            When a quantum natural language processing model reports a gain on text, was the quantum
+            part load-bearing, or did the trained circuit sit in the efficiently classically-simulable
+            regime the whole time? Trained circuits are re-simulated under matrix-product-state
+            truncation and an entanglement-removal ablation to find out.
+          </p>
+        </div>
+      </article>
 
-        <article class="item js-reveal">
-          <div class="item__head">
-            <h3 class="item__title">Sequential Video Belief</h3>
-            <span class="status">In progress</span>
-          </div>
-          <div class="item__body">
-            <p>
-              Does a video-language model's own previously stated answer impair its ability to
-              revise that answer when later visual evidence contradicts it? An empirical
-              investigation with the go or no-go rule fixed before analysis.
-            </p>
-          </div>
-        </article>
+      <article class="item js-reveal">
+        <div class="item__head">
+          <h3 class="item__title">Sequential Video Belief</h3>
+          <span class="status">In progress</span>
+        </div>
+        <div class="item__body">
+          <p>
+            Does a video-language model's own previously stated answer impair its ability to revise
+            that answer when later visual evidence contradicts it? An empirical investigation with the
+            go or no-go rule fixed before analysis.
+          </p>
+        </div>
+      </article>
 
-        <article class="item js-reveal">
-          <div class="item__head">
-            <h3 class="item__title">Uncertainty-Guided Language-Grounded 3D Scene Graphs from Sparse Views</h3>
-            <span class="status">In progress</span>
-          </div>
-          <div class="item__body">
-            <p>
-              Frozen geometry and vision-language foundation models with a lightweight graph
-              reasoning module, for object-level 3D segmentation and spatial relations from only a
-              few casual images.
-            </p>
-          </div>
-        </article>
+      <article class="item js-reveal">
+        <div class="item__head">
+          <h3 class="item__title">Uncertainty-Guided Language-Grounded 3D Scene Graphs from Sparse Views</h3>
+          <span class="status">In progress</span>
+        </div>
+        <div class="item__body">
+          <p>
+            Frozen geometry and vision-language foundation models with a lightweight graph reasoning
+            module, for object-level 3D segmentation and spatial relations from only a few casual
+            images.
+          </p>
+        </div>
+      </article>
 
-      </div>
     </div>
   </div>
 </section>
 
 <!-- ============================== PUBLICATIONS ============================== -->
-<section id="publications" class="band band--sunk">
+<section id="publications" class="band">
   <div class="wrap">
-    <div class="row">
-      <div>
-        <span class="sec-num">04</span>
-        <h2 class="h-sec">Publications</h2>
-      </div>
-      <div>
-        <p class="sec-lede">
-          One accepted paper and one under review. No citation counts, impact factors or
-          acceptance rates are quoted.
-        </p>
+    <div class="sec-head"><span class="sec-num">04</span><h2 class="h-sec">Publications</h2></div>
+    <p class="sec-lede">
+      One accepted paper and one under review. No citation counts, impact factors or acceptance
+      rates are quoted.
+    </p>
 
-        <div class="list">
+    <div class="list grid-2">
 
-          <article class="item item--lead js-reveal">
-            <div class="item__flags">
-              <span class="status status--accepted">Accepted</span>
-              <span class="tag">2026</span>
-            </div>
-            <h3 class="item__title" style="margin-top:.55rem">
-              Closed-Book Knowledge Base Construction with Calibrated Abstention and Numeric Self-Consistency
-            </h3>
-            <p class="item__sub">
-              <span class="me">Tanvir Ahmed</span><br>
-              <span class="item__venue">LM-KBC 2026 shared task (5th edition), Automated Knowledge Base Construction (AKBC) at EMNLP 2026</span>
-            </p>
-            <div class="item__body">
-              <p>
-                The task asks for the complete set of objects for a (subject, relation) pair under
-                strict closed-book conditions: an open-weight model of at most 32B parameters, no
-                retrieval and no fine-tuning. Everything in the system follows from one property of
-                the metric, that a correct empty prediction scores a perfect F1, so knowing when to
-                decline is worth as much as knowing the answer.
-              </p>
-              <p>
-                The primary system scores 0.461 relation-averaged and 0.488 micro macro-F1 on
-                validation, against 0.300 and 0.313 for the official baseline, and beats it on five
-                of the six relations. The main finding is that at this parameter budget model scale
-                outweighs decode-time self-consistency: a single-sample 30B model beats a smaller 14B
-                using multi-sample voting. All numbers are validation; no official test score was
-                obtained.
-              </p>
-            </div>
-            <p class="item__links">
-              <a href="https://github.com/minhaz-42/lm-kbc-2026" rel="noopener">Code and cached generations &#8599;</a>
-              <a href="https://www.akbc.ws/2026/shared-task.html" rel="noopener">Shared task &#8599;</a>
-            </p>
-          </article>
-
-          <article class="item js-reveal">
-            <div class="item__flags">
-              <span class="status status--review">Under review</span>
-              <span class="tag">2026</span>
-            </div>
-            <h3 class="item__title" style="margin-top:.55rem">
-              SoundSentry: A Low-Cost Edge-AI Acoustic Event Detection and Direction-Finding System on STM32
-            </h3>
-            <p class="item__sub">
-              <span class="me">Tanvir Ahmed</span>, Sanzana Afrin Tonny, Husain Kabir Sifat<br>
-              <span class="item__venue">International Conference on Electrical and Computer Engineering (ICECE) 2026, Dhaka</span>
-            </p>
-            <div class="item__body">
-              <p>
-                An STM32F103 prototype for acoustic event detection and direction finding: a
-                three-microphone analog array, continuous ADC-DMA acquisition, on-device
-                classification over 11 time- and spectral-domain features, servo-based directional
-                response and SD-card event logging. On the full 2,000-clip ESC-50 dataset the
-                desktop-side classifier reaches 59.55% accuracy and 58.17% macro-F1 under five-fold
-                validation, and the paper reports the resulting dataset-to-hardware gap as the main
-                obstacle to deployment.
-              </p>
-              <p>
-                Submitted to ICECE 2026, with decisions announced on 1 November 2026. No preprint has
-                been posted, so there is no paper link to give yet.
-              </p>
-            </div>
-          </article>
-
+      <article class="item item--lead js-reveal">
+        <div class="item__flags">
+          <span class="status status--accepted">Accepted</span>
+          <span class="tag">2026</span>
         </div>
-      </div>
+        <h3 class="item__title" style="margin-top:.55rem">
+          Closed-Book Knowledge Base Construction with Calibrated Abstention and Numeric Self-Consistency
+        </h3>
+        <p class="item__sub">
+          <span class="me">Tanvir Ahmed</span><br>
+          <span class="item__venue">LM-KBC 2026 shared task (5th edition), Automated Knowledge Base Construction (AKBC) at EMNLP 2026</span>
+        </p>
+        <div class="item__body">
+          <p>
+            The task asks for the complete set of objects for a (subject, relation) pair under strict
+            closed-book conditions: an open-weight model of at most 32B parameters, no retrieval and
+            no fine-tuning. Everything in the system follows from one property of the metric, that a
+            correct empty prediction scores a perfect F1, so knowing when to decline is worth as much
+            as knowing the answer.
+          </p>
+          <p>
+            The primary system scores 0.461 relation-averaged and 0.488 micro macro-F1 on validation,
+            against 0.300 and 0.313 for the official baseline, and beats it on five of the six
+            relations. The main finding is that at this parameter budget model scale outweighs
+            decode-time self-consistency: a single-sample 30B model beats a smaller 14B using
+            multi-sample voting. All numbers are validation; no official test score was obtained.
+          </p>
+        </div>
+        <p class="item__links">
+          <a href="https://github.com/minhaz-42/lm-kbc-2026" rel="noopener">Code and cached generations &#8599;</a>
+          <a href="https://www.akbc.ws/2026/shared-task.html" rel="noopener">Shared task &#8599;</a>
+        </p>
+      </article>
+
+      <article class="item js-reveal">
+        <div class="item__flags">
+          <span class="status status--review">Under review</span>
+          <span class="tag">2026</span>
+        </div>
+        <h3 class="item__title" style="margin-top:.55rem">
+          SoundSentry: A Low-Cost Edge-AI Acoustic Event Detection and Direction-Finding System on STM32
+        </h3>
+        <p class="item__sub">
+          <span class="me">Tanvir Ahmed</span>, Sanzana Afrin Tonny, Husain Kabir Sifat<br>
+          <span class="item__venue">International Conference on Electrical and Computer Engineering (ICECE) 2026, Dhaka</span>
+        </p>
+        <div class="item__body">
+          <p>
+            An STM32F103 prototype for acoustic event detection and direction finding: a
+            three-microphone analog array, continuous ADC-DMA acquisition, on-device classification
+            over 11 time- and spectral-domain features, servo-based directional response and SD-card
+            event logging. On the full 2,000-clip ESC-50 dataset the desktop-side classifier reaches
+            59.55% accuracy and 58.17% macro-F1 under five-fold validation, and the paper reports the
+            resulting dataset-to-hardware gap as the main obstacle to deployment.
+          </p>
+          <p>
+            Submitted to ICECE 2026, with decisions announced on 1 November 2026. No preprint has been
+            posted, so there is no paper link to give yet.
+          </p>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
 
 <!-- ============================== PROJECTS ============================== -->
-<section id="projects" class="band">
+<section id="projects" class="band band--sunk">
   <div class="wrap">
-    <div class="row">
-      <div>
-        <span class="sec-num">05</span>
-        <h2 class="h-sec">Projects</h2>
-      </div>
-      <div>
-        <p class="sec-lede">Software I built outside the research above.</p>
+    <div class="sec-head"><span class="sec-num">05</span><h2 class="h-sec">Projects</h2></div>
+    <p class="sec-lede">Software I built outside the research above.</p>
 
-        <div class="list">
+    <div class="list grid-2">
 
-          <article class="item item--plain js-reveal">
-            <div class="item__head">
-              <h3 class="item__title">Pakna Council</h3>
-              <span class="item__meta">2026</span>
-            </div>
-            <div class="item__body">
-              <p>
-                A local-first web application that runs several large language models in parallel
-                on one prompt through Ollama and collects the responses side by side.
-              </p>
-            </div>
-            <p class="item__tech">Django, React, Docker, WebSocket</p>
-            <p class="item__links">
-              <a href="https://github.com/minhaz-42/Pakna_council" rel="noopener">Source &#8599;</a>
-              <a href="https://pakna-council.vercel.app/" rel="noopener">Demo &#8599;</a>
-            </p>
-          </article>
+      <article class="item item--plain js-reveal">
+        <div class="item__head"><h3 class="item__title">Pakna Council</h3><span class="item__meta">2026</span></div>
+        <div class="item__body"><p>A local-first web application that runs several large language models in parallel on one prompt through Ollama and collects the responses side by side.</p></div>
+        <p class="item__tech">Django, React, Docker, WebSocket</p>
+        <p class="item__links">
+          <a href="https://github.com/minhaz-42/Pakna_council" rel="noopener">Source &#8599;</a>
+          <a href="https://pakna-council.vercel.app/" rel="noopener">Live site &#8599;</a>
+        </p>
+      </article>
 
-          <article class="item item--plain js-reveal">
-            <div class="item__head">
-              <h3 class="item__title">SHAND</h3>
-              <span class="item__meta">2026</span>
-            </div>
-            <div class="item__body">
-              <p>
-                A deterministic, explainable detector for unstated assumptions in English text,
-                with no learned model, so every flag traces back to the rule that produced it.
-              </p>
-            </div>
-            <p class="item__tech">Python, Django, D3.js</p>
-            <p class="item__links">
-              <a href="https://github.com/minhaz-42/SHAND" rel="noopener">Source &#8599;</a>
-              <a href="https://shand1.vercel.app/" rel="noopener">Demo &#8599;</a>
-            </p>
-          </article>
+      <article class="item item--plain js-reveal">
+        <div class="item__head"><h3 class="item__title">SHAND</h3><span class="item__meta">2026</span></div>
+        <div class="item__body"><p>A deterministic, explainable detector for unstated assumptions in English text, with no learned model, so every flag traces back to the rule that produced it.</p></div>
+        <p class="item__tech">Python, Django, D3.js</p>
+        <p class="item__links">
+          <a href="https://github.com/minhaz-42/SHAND" rel="noopener">Source &#8599;</a>
+          <a href="https://shand1.vercel.app/" rel="noopener">Live site &#8599;</a>
+        </p>
+      </article>
 
-          <article class="item item--plain js-reveal">
-            <div class="item__head">
-              <h3 class="item__title">ISKA</h3>
-              <span class="item__meta">2026</span>
-            </div>
-            <div class="item__body">
-              <p>A privacy-first document analysis assistant with a Chrome extension for use while reading.</p>
-            </div>
-            <p class="item__tech">TypeScript, Chrome extension APIs</p>
-            <p class="item__links">
-              <a href="https://github.com/minhaz-42/ISKA" rel="noopener">Source &#8599;</a>
-              <a href="https://iska-hxrr.vercel.app/" rel="noopener">Demo &#8599;</a>
-            </p>
-          </article>
+      <article class="item item--plain js-reveal">
+        <div class="item__head"><h3 class="item__title">ISKA</h3><span class="item__meta">2026</span></div>
+        <div class="item__body"><p>A privacy-first document analysis assistant with a Chrome extension for use while reading.</p></div>
+        <p class="item__tech">TypeScript, Chrome extension APIs</p>
+        <p class="item__links">
+          <a href="https://github.com/minhaz-42/ISKA" rel="noopener">Source &#8599;</a>
+          <a href="https://iska-hxrr.vercel.app/" rel="noopener">Live site &#8599;</a>
+        </p>
+      </article>
 
-          <article class="item item--plain js-reveal">
-            <div class="item__head">
-              <h3 class="item__title">Nestledown</h3>
-              <span class="item__meta">2026</span>
-            </div>
-            <div class="item__body">
-              <p>
-                A cozy 3D exploration game built solo in Godot 4, in which every model, texture,
-                animation and sound is generated by a script and no third-party asset enters the
-                repository. A parallel build of the same world runs on a custom C++20 engine with a
-                Metal renderer.
-              </p>
-            </div>
-            <p class="item__tech">Godot 4, Blender, C++20, Metal, SDL3</p>
-            <p class="item__links">
-              <a href="https://youtu.be/MUN7_kuh00U" rel="noopener">Announcement trailer &#8599;</a>
-            </p>
-          </article>
+      <article class="item item--plain js-reveal">
+        <div class="item__head"><h3 class="item__title">Nestledown</h3><span class="item__meta">2026</span></div>
+        <div class="item__body"><p>A cozy 3D exploration game built solo in Godot 4, in which every model, texture, animation and sound is generated by a script and no third-party asset enters the repository. A parallel build of the same world runs on a custom C++20 engine with a Metal renderer.</p></div>
+        <p class="item__tech">Godot 4, Blender, C++20, Metal, SDL3</p>
+        <p class="item__links">
+          <a href="https://youtu.be/MUN7_kuh00U" rel="noopener">Announcement trailer &#8599;</a>
+        </p>
+      </article>
 
-          <article class="item item--plain js-reveal">
-            <div class="item__head">
-              <h3 class="item__title">Entangled Fusion Quantum Circuits</h3>
-              <span class="item__meta">2026</span>
-            </div>
-            <div class="item__body">
-              <p>An experimental multimodal platform pairing vision analysis with quantum-inspired fusion and language reasoning.</p>
-            </div>
-            <p class="item__tech">Python, Django, PennyLane, Ollama, OpenCV</p>
-          </article>
+      <article class="item item--plain js-reveal">
+        <div class="item__head"><h3 class="item__title">Entangled Fusion Quantum Circuits</h3><span class="item__meta">2026</span></div>
+        <div class="item__body"><p>An experimental multimodal platform pairing vision analysis with quantum-inspired fusion and language reasoning.</p></div>
+        <p class="item__tech">Python, Django, PennyLane, Ollama, OpenCV</p>
+      </article>
 
-          <article class="item item--plain js-reveal">
-            <div class="item__head">
-              <h3 class="item__title">SUMBA</h3>
-              <span class="item__meta">2026</span>
-            </div>
-            <div class="item__body">
-              <p>3D sign language translation: gesture capture, dataset building and model training for sign-to-text translation.</p>
-            </div>
-            <p class="item__tech">Django, MediaPipe, Transformers, React Native</p>
-          </article>
+      <article class="item item--plain js-reveal">
+        <div class="item__head"><h3 class="item__title">SUMBA</h3><span class="item__meta">2026</span></div>
+        <div class="item__body"><p>3D sign language translation: gesture capture, dataset building and model training for sign-to-text translation.</p></div>
+        <p class="item__tech">Django, MediaPipe, Transformers, React Native</p>
+      </article>
 
-          <article class="item item--plain js-reveal">
-            <div class="item__head">
-              <h3 class="item__title">FitWell</h3>
-              <span class="item__meta">2025</span>
-            </div>
-            <div class="item__body">
-              <p>A nutrition and health assistant with meal planning, BMI tracking and health insights.</p>
-            </div>
-            <p class="item__tech">Django, Python, Qwen, SQLite, Chart.js</p>
-          </article>
+      <article class="item item--plain js-reveal">
+        <div class="item__head"><h3 class="item__title">FitWell</h3><span class="item__meta">2025</span></div>
+        <div class="item__body"><p>A nutrition and health assistant with meal planning, BMI tracking and health insights.</p></div>
+        <p class="item__tech">Django, Python, Qwen, SQLite, Chart.js</p>
+      </article>
 
-          <article class="item item--plain js-reveal">
-            <div class="item__head">
-              <h3 class="item__title">DG Healthcare Management System</h3>
-              <span class="item__meta">2024</span>
-            </div>
-            <div class="item__body">
-              <p>Records, appointment scheduling, prescription tracking and billing with role-based access.</p>
-            </div>
-            <p class="item__tech">PHP, MySQL, HTML5, CSS3, JavaScript</p>
-          </article>
+      <article class="item item--plain js-reveal">
+        <div class="item__head"><h3 class="item__title">DG Healthcare Management System</h3><span class="item__meta">2024</span></div>
+        <div class="item__body"><p>Records, appointment scheduling, prescription tracking and billing with role-based access.</p></div>
+        <p class="item__tech">PHP, MySQL, HTML5, CSS3, JavaScript</p>
+      </article>
 
-        </div>
-      </div>
     </div>
   </div>
 </section>
 
 <!-- ============================== SKILLS ============================== -->
-<section id="skills" class="band band--sunk">
+<section id="skills" class="band">
   <div class="wrap">
-    <div class="row">
-      <div>
-        <span class="sec-num">06</span>
-        <h2 class="h-sec">Technical skills</h2>
-      </div>
-      <div>
-        <p class="sec-lede">
-          Grouped by what I actually use them for. Everything listed appears in the projects and
-          papers above.
-        </p>
+    <div class="sec-head"><span class="sec-num">06</span><h2 class="h-sec">Technical skills</h2></div>
+    <p class="sec-lede">Grouped by what I actually use them for. Everything listed appears in the projects and papers above.</p>
 
-        <div class="skills js-reveal">
-          <div>
-            <h3>Programming</h3>
-            <ul class="tags">
-              <li class="tag">Python</li><li class="tag">C++</li><li class="tag">C</li>
-              <li class="tag">Java</li><li class="tag">JavaScript</li><li class="tag">TypeScript</li>
-              <li class="tag">PHP</li><li class="tag">SQL</li><li class="tag">LaTeX</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Machine learning</h3>
-            <ul class="tags">
-              <li class="tag">PyTorch</li><li class="tag">Transformers</li>
-              <li class="tag">PyTorch Geometric</li><li class="tag">scikit-learn</li>
-              <li class="tag">Graph attention networks</li><li class="tag">Model fine-tuning</li>
-              <li class="tag">Calibration</li><li class="tag">Hydra</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Computer vision and multimodal</h3>
-            <ul class="tags">
-              <li class="tag">OpenCV</li><li class="tag">CLIP</li><li class="tag">DINOv2</li>
-              <li class="tag">SAM 2</li><li class="tag">MediaPipe</li>
-              <li class="tag">Vision-language models</li><li class="tag">Video understanding</li>
-              <li class="tag">Ollama</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Quantum machine learning</h3>
-            <ul class="tags">
-              <li class="tag">PennyLane</li><li class="tag">Variational circuits</li>
-              <li class="tag">OpenQASM</li><li class="tag">MPS simulation</li><li class="tag">lambeq</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Web and software</h3>
-            <ul class="tags">
-              <li class="tag">Django</li><li class="tag">React</li><li class="tag">Node.js</li>
-              <li class="tag">REST APIs</li><li class="tag">WebSocket</li><li class="tag">Docker</li>
-              <li class="tag">PostgreSQL</li><li class="tag">MySQL</li><li class="tag">SQLite</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Embedded</h3>
-            <ul class="tags">
-              <li class="tag">STM32</li><li class="tag">Embedded C</li>
-              <li class="tag">ADC-DMA acquisition</li><li class="tag">Sensor interfacing</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Graphics and games</h3>
-            <ul class="tags">
-              <li class="tag">Godot 4</li><li class="tag">Blender</li><li class="tag">Metal</li>
-              <li class="tag">SDL3</li><li class="tag">CMake</li>
-            </ul>
-          </div>
-          <div>
-            <h3>Tools</h3>
-            <ul class="tags">
-              <li class="tag">Git</li><li class="tag">Linux</li><li class="tag">Jupyter</li>
-              <li class="tag">Apple MPS</li><li class="tag">VS Code</li>
-            </ul>
-          </div>
-        </div>
+    <div class="skills js-reveal">
+      <div class="skill">
+        <h3>Programming</h3>
+        <ul class="tags">
+          <li class="tag">Python</li><li class="tag">C++</li><li class="tag">C</li><li class="tag">Java</li>
+          <li class="tag">JavaScript</li><li class="tag">TypeScript</li><li class="tag">PHP</li><li class="tag">SQL</li><li class="tag">LaTeX</li>
+        </ul>
+      </div>
+      <div class="skill">
+        <h3>Machine learning</h3>
+        <ul class="tags">
+          <li class="tag">PyTorch</li><li class="tag">Transformers</li><li class="tag">PyTorch Geometric</li><li class="tag">scikit-learn</li>
+          <li class="tag">Graph attention networks</li><li class="tag">Model fine-tuning</li><li class="tag">Calibration</li><li class="tag">Hydra</li>
+        </ul>
+      </div>
+      <div class="skill">
+        <h3>Computer vision and multimodal</h3>
+        <ul class="tags">
+          <li class="tag">OpenCV</li><li class="tag">CLIP</li><li class="tag">DINOv2</li><li class="tag">SAM 2</li><li class="tag">MediaPipe</li>
+          <li class="tag">Vision-language models</li><li class="tag">Video understanding</li><li class="tag">Ollama</li>
+        </ul>
+      </div>
+      <div class="skill">
+        <h3>Quantum machine learning</h3>
+        <ul class="tags">
+          <li class="tag">PennyLane</li><li class="tag">Variational circuits</li><li class="tag">OpenQASM</li><li class="tag">MPS simulation</li><li class="tag">lambeq</li>
+        </ul>
+      </div>
+      <div class="skill">
+        <h3>Web and software</h3>
+        <ul class="tags">
+          <li class="tag">Django</li><li class="tag">React</li><li class="tag">Node.js</li><li class="tag">REST APIs</li><li class="tag">WebSocket</li>
+          <li class="tag">Docker</li><li class="tag">PostgreSQL</li><li class="tag">MySQL</li><li class="tag">SQLite</li>
+        </ul>
+      </div>
+      <div class="skill">
+        <h3>Embedded</h3>
+        <ul class="tags">
+          <li class="tag">STM32</li><li class="tag">Embedded C</li><li class="tag">ADC-DMA acquisition</li><li class="tag">Sensor interfacing</li>
+        </ul>
+      </div>
+      <div class="skill">
+        <h3>Graphics and games</h3>
+        <ul class="tags">
+          <li class="tag">Godot 4</li><li class="tag">Blender</li><li class="tag">Metal</li><li class="tag">SDL3</li><li class="tag">CMake</li>
+        </ul>
+      </div>
+      <div class="skill">
+        <h3>Tools</h3>
+        <ul class="tags">
+          <li class="tag">Git</li><li class="tag">Linux</li><li class="tag">Jupyter</li><li class="tag">Apple MPS</li><li class="tag">VS Code</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================== EDUCATION ============================== -->
-<section id="education" class="band">
+<section id="education" class="band band--sunk">
   <div class="wrap">
-    <div class="row">
+    <div class="sec-head"><span class="sec-num">07</span><h2 class="h-sec">Education</h2></div>
+    <div class="grid-2 js-reveal">
       <div>
-        <span class="sec-num">07</span>
-        <h2 class="h-sec">Education</h2>
-      </div>
-      <div>
-        <div class="list js-reveal">
+        <p class="eyebrow">Degrees</p>
+        <div class="list">
           <article class="item item--plain">
-            <div class="item__head">
-              <h3 class="item__title">B.Sc. in Computer Science and Engineering</h3>
-              <span class="item__meta">2022 &ndash; Dec 2026</span>
-            </div>
+            <div class="item__head"><h3 class="item__title">B.Sc. in Computer Science and Engineering</h3><span class="item__meta">2022 &ndash; Dec 2026</span></div>
             <p class="item__sub">North South University, Dhaka. Department of Electrical and Computer Engineering.</p>
             <div class="item__body"><p>CGPA 3.02 / 4.00.</p></div>
           </article>
           <article class="item item--plain">
-            <div class="item__head">
-              <h3 class="item__title">Higher Secondary Certificate, Science</h3>
-              <span class="item__meta">2021</span>
-            </div>
+            <div class="item__head"><h3 class="item__title">Higher Secondary Certificate, Science</h3><span class="item__meta">2021</span></div>
             <p class="item__sub">Milestone College, Dhaka.</p>
             <div class="item__body"><p>GPA 5.00 / 5.00.</p></div>
           </article>
         </div>
-
-        <p class="eyebrow" style="margin-top:2.75rem">Activities</p>
-        <div class="list js-reveal">
+      </div>
+      <div>
+        <p class="eyebrow">Activities</p>
+        <div class="list">
           <article class="item item--plain">
-            <div class="item__head">
-              <h3 class="item__title">NSU Trimodal AI Lab, research member</h3>
-              <span class="item__meta">2025 &ndash; present</span>
-            </div>
-            <div class="item__body">
-              <p>Collaborative experimentation on multimodal and agentic AI systems, contributing to idea validation, prototyping and literature review.</p>
-            </div>
+            <div class="item__head"><h3 class="item__title">NSU Trimodal AI Lab, research member</h3><span class="item__meta">2025 &ndash; present</span></div>
+            <div class="item__body"><p>Collaborative experimentation on multimodal and agentic AI systems, contributing to idea validation, prototyping and literature review.</p></div>
           </article>
           <article class="item item--plain">
-            <div class="item__head">
-              <h3 class="item__title">IEEE NSU Student Branch, general member</h3>
-              <span class="item__meta">2023 &ndash; present</span>
-            </div>
-            <div class="item__body">
-              <p>Technical workshops, seminars and community outreach programmes.</p>
-            </div>
+            <div class="item__head"><h3 class="item__title">IEEE NSU Student Branch, general member</h3><span class="item__meta">2023 &ndash; present</span></div>
+            <div class="item__body"><p>Technical workshops, seminars and community outreach programmes.</p></div>
           </article>
         </div>
       </div>
@@ -760,51 +645,23 @@
 </section>
 
 <!-- ============================== CONTACT ============================== -->
-<section id="contact" class="band band--sunk">
+<section id="contact" class="band">
   <div class="wrap">
-    <div class="row">
-      <div>
-        <span class="sec-num">08</span>
-        <h2 class="h-sec">Contact</h2>
-      </div>
-      <div>
-        <p class="sec-lede">
-          Email is the most reliable way to reach me. I am happy to talk about any of the work
-          above, and I am looking for graduate research positions in computer vision and
-          multimodal learning.
-        </p>
-
-        <ul class="contact-list js-reveal">
-          <li>
-            <span class="k">Email</span>
-            <a href="mailto:tanvirahmed.minhaz1@gmail.com">tanvirahmed.minhaz1@gmail.com</a>
-          </li>
-          <li>
-            <span class="k">University</span>
-            <a href="mailto:tanvir.ahmed32@northsouth.edu">tanvir.ahmed32@northsouth.edu</a>
-          </li>
-          <li>
-            <span class="k">Phone</span>
-            <a href="tel:+8801841449894">+880 1841 449894</a>
-          </li>
-          <li>
-            <span class="k">GitHub</span>
-            <a href="https://github.com/minhaz-42" rel="me noopener">github.com/minhaz-42</a>
-          </li>
-          <li>
-            <span class="k">LinkedIn</span>
-            <a href="https://www.linkedin.com/in/tanvir-ahmed-1a4856418/" rel="me noopener">Tanvir Ahmed</a>
-          </li>
-          <li>
-            <span class="k">CV</span>
-            <span><a href="resume/">Full CV</a>, or <a href="assets/cv/Tanvir-Ahmed-CV.pdf">download the PDF</a></span>
-          </li>
-          <li>
-            <span class="k">Location</span>
-            <span>Dhaka, Bangladesh</span>
-          </li>
-        </ul>
-      </div>
+    <div class="sec-head"><span class="sec-num">08</span><h2 class="h-sec">Contact</h2></div>
+    <div class="grid-2 js-reveal">
+      <p class="sec-lede" style="margin-bottom:0">
+        Email is the most reliable way to reach me. I am happy to talk about any of the work above,
+        and I am looking for graduate research positions in computer vision and multimodal learning.
+      </p>
+      <ul class="contact-list">
+        <li><span class="k">Email</span><a href="mailto:tanvirahmed.minhaz1@gmail.com">tanvirahmed.minhaz1@gmail.com</a></li>
+        <li><span class="k">University</span><a href="mailto:tanvir.ahmed32@northsouth.edu">tanvir.ahmed32@northsouth.edu</a></li>
+        <li><span class="k">Phone</span><a href="tel:+8801841449894">+880 1841 449894</a></li>
+        <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/tanvir-ahmed-1a4856418/" rel="me noopener">linkedin.com/in/tanvir-ahmed-1a4856418</a></li>
+        <li><span class="k">GitHub</span><a href="https://github.com/minhaz-42" rel="me noopener">github.com/minhaz-42</a></li>
+        <li><span class="k">CV</span><span><a href="resume/">Full CV</a>, or <a href="assets/cv/Tanvir-Ahmed-CV.pdf">download the PDF</a></span></li>
+        <li><span class="k">Location</span><span>Dhaka, Bangladesh</span></li>
+      </ul>
     </div>
   </div>
 </section>
@@ -830,7 +687,6 @@
   'use strict';
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  /* Close the mobile disclosure after a jump, so the panel does not cover the target. */
   var menu = document.querySelector('.nav-mobile');
   if (menu) {
     menu.addEventListener('click', function (e) {
@@ -838,25 +694,18 @@
     });
   }
 
-  /* Section reveal. Only runs when the head script armed .reveal-on, so the
-     hidden start state and this observer are always enabled together. */
   if (document.documentElement.classList.contains('reveal-on')) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
         if (en.isIntersecting) { en.target.classList.add('is-in'); io.unobserve(en.target); }
       });
-    /* threshold 0: a block taller than the viewport can never reach a ratio
-       threshold, and must still reveal. */
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
     document.querySelectorAll('.js-reveal').forEach(function (el) { io.observe(el); });
   }
 
-  /* Mark the section currently in view in the desktop nav. The research area
-     spans three sections, so all three point at the one Research link. */
   if ('IntersectionObserver' in window) {
     var links = Array.prototype.slice.call(document.querySelectorAll('.nav--desk a[href^="#"]'));
-    var map = {};
-    var targets = [];
+    var map = {}; var targets = [];
     links.forEach(function (a) {
       var el = document.querySelector(a.getAttribute('href'));
       if (el) { map[el.id] = a; targets.push(el); }
@@ -867,8 +716,7 @@
     });
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        var a = map[en.target.id];
-        if (!a) return;
+        var a = map[en.target.id]; if (!a) return;
         if (en.isIntersecting) {
           links.forEach(function (l) { l.removeAttribute('aria-current'); });
           a.setAttribute('aria-current', 'true');
