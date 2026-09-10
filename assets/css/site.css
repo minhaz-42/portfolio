@@ -89,19 +89,17 @@ section[id] { scroll-margin-top: 4.5rem; }
 /* Two-column content grid. Collapses to one column below 860px. */
 .grid-2 { display: grid; gap: 1.5rem var(--col-gap); grid-template-columns: 1fr; }
 @media (min-width: 860px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
-.grid-2--wide { grid-template-columns: 1fr; }
-@media (min-width: 860px) { .grid-2--wide { grid-template-columns: 1.15fr .85fr; } }
 
 /* Prose that fills its column and flows into two magazine columns on desktop */
 .prose { color: var(--ink-2); }
 .prose p + p { margin-top: .85rem; }
 .prose--cols { column-gap: var(--col-gap); }
-@media (min-width: 860px) { .prose--cols { columns: 2; } .prose--cols p { break-inside: avoid; } }
+@media (min-width: 860px) { .prose--cols { columns: 2; column-fill: balance; } }
 
 /* Grid items default to a min-content minimum; a long token or wide child would
    push a track past the viewport. Every grid container opts children back to 0. */
 :where(.grid-2, .hero__grid, .list, .item__head, .interests, .skills, .skill,
-       .contact-list, .contact-list > li, .detail, .detail > div, .tags, .cv__grid) > * { min-width: 0; }
+       .contact-list, .contact-list > li, .tags, .cv__grid) > * { min-width: 0; }
 
 /* --- Section header: number, title, rule running to the right edge -------- */
 .sec-head {
@@ -248,24 +246,6 @@ section[id] { scroll-margin-top: 4.5rem; }
 .interests > li::before { content: ''; position: absolute; left: 0; top: 1.38rem; width: .4rem; height: .4rem; background: var(--accent); }
 .interests .i-name { font-weight: 600; font-size: .9375rem; }
 .interests .i-note { color: var(--ink-3); font-size: .9375rem; }
-
-/* --- Featured research ---------------------------------------------------- */
-.feature { border-top: 3px solid var(--accent); padding-top: 1.4rem; }
-.feature__title { font-family: var(--serif); font-size: clamp(1.5rem, 3vw, 2rem); letter-spacing: -.015em; margin-bottom: .35rem; }
-.feature__sub { color: var(--ink-2); font-size: 1.0625rem; text-wrap: pretty; margin-bottom: .9rem; }
-.meta-line {
-  font-size: .875rem; color: var(--ink-3); display: flex; flex-wrap: wrap; gap: .2rem 1.25rem;
-  padding-block: .65rem; border-block: 1px solid var(--rule); margin-bottom: 1.4rem;
-}
-.meta-line b { font-weight: 500; color: var(--ink-2); }
-
-/* Definition-style facts */
-.detail { display: grid; gap: .55rem; align-content: start; }
-.detail > div { display: grid; gap: .1rem .9rem; grid-template-columns: 1fr; }
-@media (min-width: 560px) { .detail > div { grid-template-columns: 5.75rem 1fr; } }
-.detail .k { font-size: .6875rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--ink-3); padding-top: .28rem; }
-.detail .v { margin: 0; font-size: .9375rem; color: var(--ink-2); }
-.detail--boxed { padding: 1rem 1.1rem; border: 1px solid var(--rule); border-left: 2px solid var(--ink-3); background: var(--bg); }
 
 /* --- Entries: one component for research, publications, projects, education
    Title on its own line, meta on the right, description beneath. In a .grid-2

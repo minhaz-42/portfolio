@@ -242,58 +242,25 @@
         <div class="i-note">Inference and sensing on microcontroller-class hardware.</div>
       </li>
     </ul>
-  </div>
-</section>
 
-<!-- ====================== FEATURED RESEARCH ====================== -->
-<section id="featured" class="band" aria-labelledby="feat-title">
-  <div class="wrap">
-    <p class="eyebrow">Featured research</p>
-
-    <div class="feature js-reveal">
-      <h2 class="feature__title" id="feat-title">Frame-Aware Multi-Model Scheduling for Efficient Video Captioning</h2>
-      <p class="feature__sub">Spending a large vision-language model only where the video is actually hard.</p>
-
-      <p class="meta-line">
-        <span><b>Role</b> Lead author, team of four</span>
-        <span><b>Context</b> CSE/EEE 499 Senior Design Project, Department of ECE, North South University</span>
-      </p>
-
-      <div class="grid-2 grid-2--wide">
-        <div class="prose">
-          <p>
-            Most in-cabin driver video is visually uneventful, so running a large model on every
-            window spends the same compute on the dull seconds as on the ones that matter. Four
-            frames are stitched into a mosaic, encoded by a frozen CLIP ViT-B/32, and scored for
-            visual complexity by a small graph attention network; only the complex windows go to
-            the 27B model, the rest to the 4B.
-          </p>
-          <p>
-            Training the scorer needs no human labels: each mosaic is captioned by both models
-            and the label is the disagreement between the two captions in CLIP text space. Two
-            findings came out of it. The scorer transfers across datasets but its threshold does
-            not, and a threshold tuned on one dataset silently collapses routing to all-large on
-            the other. And BLEU and METEOR rank the 27B model below the 4B, inverting model
-            capacity, which is why a frames-grounded judge is a necessity here.
-          </p>
-        </div>
-
-        <div class="detail detail--boxed">
-          <div><span class="k">Cost</span><span class="v">70 API requests for the 19-clip benchmark, against 228 for the small model alone and 118 for the large one.</span></div>
-          <div><span class="k">Quality</span><span class="v">2.92 overall on the judge's 1 to 5 scale, between 2.13 for the small model and 3.83 for the large, and above the small model on every judged axis.</span></div>
-          <div><span class="k">Judge</span><span class="v">A blind, frames-grounded vision-language judge over 117 windows from Drive&amp;Act and DMD. Single run, not validated against human ratings.</span></div>
-          <div><span class="k">Stack</span><span class="v">Python, PyTorch, PyTorch Geometric, CLIP, Django, Gemma 3 (4B and 27B), Qwen3-VL</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====================== OTHER RESEARCH ====================== -->
-<section id="research-more" class="band band--sunk">
-  <div class="wrap">
-    <div class="sec-head"><span class="sec-num">03</span><h2 class="h-sec">Other research</h2></div>
+    <p class="eyebrow" style="margin-top:2rem">Research projects</p>
     <div class="list grid-2">
+
+      <article class="item js-reveal">
+        <div class="item__head">
+          <h3 class="item__title">Frame-Aware Multi-Model Scheduling for Efficient Video Captioning</h3>
+          <span class="status">Complete</span>
+        </div>
+        <p class="item__sub">CSE/EEE 499 Senior Design Project, Department of ECE, North South University. Lead author of four.</p>
+        <div class="item__body">
+          <p>
+            Routes video captioning between a 4B and a 27B vision-language model with a small
+            complexity scorer trained without human labels, so the large model is spent only on the
+            windows that need it. It answers the benchmark in fewer requests than either model alone
+            while scoring above the small one on every judged axis.
+          </p>
+        </div>
+      </article>
 
       <article class="item js-reveal">
         <div class="item__head">
@@ -395,10 +362,9 @@
 <!-- ============================== PUBLICATIONS ============================== -->
 <section id="publications" class="band">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">04</span><h2 class="h-sec">Publications</h2></div>
+    <div class="sec-head"><span class="sec-num">03</span><h2 class="h-sec">Publications</h2></div>
     <p class="sec-lede">
-      One accepted paper and one under review. No citation counts, impact factors or acceptance
-      rates are quoted.
+      One accepted paper and one under review.
     </p>
 
     <div class="list grid-2">
@@ -417,22 +383,14 @@
         </p>
         <div class="item__body">
           <p>
-            The task asks for the complete set of objects for a (subject, relation) pair under strict
-            closed-book conditions: an open-weight model of at most 32B parameters, no retrieval and
-            no fine-tuning. Everything in the system follows from one property of the metric, that a
-            correct empty prediction scores a perfect F1, so knowing when to decline is worth as much
-            as knowing the answer.
-          </p>
-          <p>
-            The primary system scores 0.461 relation-averaged and 0.488 micro macro-F1 on validation,
-            against 0.300 and 0.313 for the official baseline, and beats it on five of the six
-            relations. The main finding is that at this parameter budget model scale outweighs
-            decode-time self-consistency: a single-sample 30B model beats a smaller 14B using
-            multi-sample voting. All numbers are validation; no official test score was obtained.
+            A single-author system paper on set-valued knowledge base construction under a strict
+            closed-book budget: an open-weight model of at most 32B parameters, no retrieval and no
+            fine-tuning. The system treats deciding when to answer as a first-class decision and beats
+            the official baseline on five of the six relations.
           </p>
         </div>
         <p class="item__links">
-          <a href="https://github.com/minhaz-42/lm-kbc-2026" rel="noopener">Code and cached generations &#8599;</a>
+          <a href="https://github.com/minhaz-42/lm-kbc-2026" rel="noopener">Code &#8599;</a>
           <a href="https://www.akbc.ws/2026/shared-task.html" rel="noopener">Shared task &#8599;</a>
         </p>
       </article>
@@ -451,16 +409,10 @@
         </p>
         <div class="item__body">
           <p>
-            An STM32F103 prototype for acoustic event detection and direction finding: a
-            three-microphone analog array, continuous ADC-DMA acquisition, on-device classification
-            over 11 time- and spectral-domain features, servo-based directional response and SD-card
-            event logging. On the full 2,000-clip ESC-50 dataset the desktop-side classifier reaches
-            59.55% accuracy and 58.17% macro-F1 under five-fold validation, and the paper reports the
-            resulting dataset-to-hardware gap as the main obstacle to deployment.
-          </p>
-          <p>
-            Submitted to ICECE 2026, with decisions announced on 1 November 2026. No preprint has been
-            posted, so there is no paper link to give yet.
+            An STM32-based prototype for acoustic event detection and direction finding, with a
+            three-microphone array, on-device classification and a servo that turns toward the
+            sound. Submitted to ICECE 2026; no preprint has been posted yet, so there is no paper
+            link to give.
           </p>
         </div>
       </article>
@@ -472,7 +424,7 @@
 <!-- ============================== PROJECTS ============================== -->
 <section id="projects" class="band band--sunk">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">05</span><h2 class="h-sec">Projects</h2></div>
+    <div class="sec-head"><span class="sec-num">04</span><h2 class="h-sec">Projects</h2></div>
     <p class="sec-lede">Software I built outside the research above.</p>
 
     <div class="list grid-2">
@@ -547,7 +499,7 @@
 <!-- ============================== SKILLS ============================== -->
 <section id="skills" class="band">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">06</span><h2 class="h-sec">Technical skills</h2></div>
+    <div class="sec-head"><span class="sec-num">05</span><h2 class="h-sec">Technical skills</h2></div>
     <p class="sec-lede">Grouped by what I actually use them for. Everything listed appears in the projects and papers above.</p>
 
     <div class="skills js-reveal">
@@ -610,7 +562,7 @@
 <!-- ============================== EDUCATION ============================== -->
 <section id="education" class="band band--sunk">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">07</span><h2 class="h-sec">Education</h2></div>
+    <div class="sec-head"><span class="sec-num">06</span><h2 class="h-sec">Education</h2></div>
     <div class="grid-2 js-reveal">
       <div>
         <p class="eyebrow">Degrees</p>
@@ -647,7 +599,7 @@
 <!-- ============================== CONTACT ============================== -->
 <section id="contact" class="band">
   <div class="wrap">
-    <div class="sec-head"><span class="sec-num">08</span><h2 class="h-sec">Contact</h2></div>
+    <div class="sec-head"><span class="sec-num">07</span><h2 class="h-sec">Contact</h2></div>
     <div class="grid-2 js-reveal">
       <p class="sec-lede" style="margin-bottom:0">
         Email is the most reliable way to reach me. I am happy to talk about any of the work above,
@@ -709,10 +661,6 @@
     links.forEach(function (a) {
       var el = document.querySelector(a.getAttribute('href'));
       if (el) { map[el.id] = a; targets.push(el); }
-    });
-    ['featured', 'research-more'].forEach(function (id) {
-      var el = document.getElementById(id);
-      if (el && map.research) { map[id] = map.research; targets.push(el); }
     });
     var spy = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
