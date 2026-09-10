@@ -25,3 +25,9 @@ yarn-error.log*
 # IDEs
 .vscode/
 .idea/
+
+# LaTeX CV build output (the published copy lives in assets/cv/)
+cv/*.pdf
+cv/*.aux
+cv/*.log
+cv/*.out
